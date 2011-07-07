@@ -1,11 +1,19 @@
+/**********************************************************
+            Javascript XML Parser for RSS Feed
+**********************************************************/
+
+
+/*
+  Making xmlHttpRequest and opening up the XML file
+  that contain all the information
+*/
 function getRSS(){
 	if(window.ActiveXObject)//IE
-		xml_req = new ActiveXObject("Microsoft.XMLHTTP");
+	xml_req = new ActiveXObject("Microsoft.XMLHTTP");
 	else if(window.XMLHttpRequest)
-		xml_req = new XMLHttpRequest();
+	xml_req = new XMLHttpRequest();
 	else
-		alert("no AJAX support");
-	
+	alert("no AJAX support");
 	
 	
 	xml_req.onreadystatechange = function(){
@@ -30,12 +38,25 @@ function getRSS(){
 	xml_req.send(null);
 }
 
+
+
+/*
+  Creating a new object that represents all the
+  entries within the XML file
+*/
 function processRSS(rssxml)
 {
 	RSS = new RSS2Channel(rssxml);
 	showRSS(RSS);
 }
 
+
+
+/*
+  Loop through each of the "entry" element, and then
+  retrieve the data stored in its child elements, and
+  return the data back as an object.
+*/
 function RSS2Channel(rssxml){
 	this.entries = new Array();
 	this.logo;
@@ -55,16 +76,16 @@ function RSS2Channel(rssxml){
 	this.time = parseTime(this.time);
 }
 
+
+
+/*
+  Parse the current time information stored 
+  in the XML file
+*/
 function parseTime(time){
-	//remove Z
 	var temp = time.slice(0,-1);
-	//split two arrays T
 	temp = temp.split('T');
-	//date
-	var date = temp[0];
-	//split with '-' keyword, to retrieve month
-	date = date.split('-');
-	//clock
+	var date = temp[0].split('-');
 	var clock = temp[1];
 	var arrayMonths = new Array("January","February","March","April","May","June","July","August","September","October","Novermber","December");
 	date[1] = arrayMonths[parseInt(date[1]) - 1];
@@ -72,13 +93,16 @@ function parseTime(time){
 	return(date +" ("+clock+")");
 }
 
+
+
+/*
+  Populating all the attributes of a single XML
+  javascript object with the data stored in the
+  child elements of "entry". 
+*/
 function RSS2Entry(itemxml){
-	this.title;
-	this.published;
-	this.linkAlt;
-	this.linkEnc;
-	this.authorName;
-	this.content;
+	this.title, this.published, this.linkAlt, this.linkEnc,
+	this.authorName, this.content;
 	
 	var tags = new Array("title", "published", "content");
 	var tempElt=null;
@@ -88,11 +112,10 @@ function RSS2Entry(itemxml){
 			eval("this." +tags[i]+"=tempElt.childNodes[0].nodeValue");
 		}
 	}
-	//for author name
+	
 	tempElt = itemxml.getElementsByTagName("author")[0];
 	this.authorName = (tempElt.getElementsByTagName("name")[0]).childNodes[0].nodeValue;
 	
-	//for link
 	tempElt = itemxml.getElementsByTagName("link");
 	for(var i=0; i<tempElt.length; i++){
 		var tempAttr = tempElt[i].getAttribute("rel");
@@ -103,6 +126,11 @@ function RSS2Entry(itemxml){
 	}
 }
 
+
+
+/*
+  Produce the data parsed by the parser as HTML elements.
+*/
 function showRSS(RSS)
 {
 

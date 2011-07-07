@@ -1,0 +1,169 @@
+body{
+	font-family:'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+	color:#545454;
+	margin:0 auto;
+	text-align:center;
+}
+
+#RSS_body{
+	margin:0 auto;
+	text-align:center;
+	width:800px;
+	padding:60px;
+	background-color:#545454;
+	border:2px solid grey;
+}
+
+/*--------HEADER PART-------------
+--------------------------------
+--------------------------------
+---------------------------------*/
+#RSS_body #RSS_header{
+	background-color:white;
+	padding:15px 50px 10px 50px;
+	width:auto;
+	height:130px;
+	border:2px solid grey;
+	margin-bottom:2.5px;
+	line-height:70%;
+}
+
+#RSS_body #RSS_header .header_logo{
+	float:left;
+}
+
+#RSS_body #RSS_header h5 img{
+	border-style:none;
+	margin-bottom:-5px;
+	opacity:0.8;
+}
+
+#RSS_body #RSS_header h5 img:hover{
+	opacity:1;
+}
+
+#RSS_body #RSS_header h2{
+	text-shadow: 0px 1px 0px #e5e5ee;
+}
+
+/*--------RSS SUBSCRIBE PANEL-----
+---------------------------------
+--------------------------------
+---------------------------------
+---------------------------------*/
+#RSS_body #RSS_subscribe{
+	text-align:left;
+	background-color:#FEFFBF;
+	border:2px solid grey;
+	padding:1.5px;
+	margin-bottom:50px;
+	height:50px;
+}
+
+#RSS_body #RSS_subscribe ul{
+	list-style-type:none;
+}
+
+#RSS_body #RSS_subscribe li{
+	display:inline;
+}
+
+#RSS_body #RSS_subscribe img{
+	opacity:0.8;
+	border-style:none;
+}
+#RSS_body #RSS_subscribe img:hover{
+	opacity:1;
+}
+
+#RSS_body #RSS_subscribe .rss{
+	float:left;
+	opacity:1;
+	margin-top:-8px;
+}
+
+#RSS_body #RSS_subscribe a{
+	padding-left:10px;
+}
+
+#RSS_body #RSS_subscribe span{
+	float:left;
+	font-size:13px;
+	padding-left:10px;
+}
+
+/*------FEED ENTRIES PART--------
+--------------------------------
+--------------------------------
+-------------------------------*/
+#RSS_body #RSS_entries{
+	border-radius:15px;
+	-moz-border-radius:15px;
+	background-color:#FEFFBF;
+	border:4px solid white;
+	padding:50px;
+	text-align:left;
+}
+
+#RSS_body #RSS_entries #entry{
+	font-size:12.5px;
+	border-bottom:1px dotted silver;
+	margin-bottom:30px;
+	padding-bottom:30px;
+}
+
+#RSS_body #RSS_entries #entry .title{
+	background-color:#28AE7B;
+	font-weight:bold;
+	color: white;
+	padding:7px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	font-size:25px;
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+}
+
+#RSS_body #RSS_entries #entry a{
+	text-decoration:none;
+}
+
+#RSS_body #RSS_entries #entry .title:hover{
+	text-decoration:none;
+	background-color:#00B2EE;
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+}
+
+#RSS_body #RSS_entries #entry #entry_published,
+#entry_authorName{
+	font-weight:bold;
+}
+
+#RSS_body #RSS_entries #entry #entry_content{
+	background-color:#28AE7B;
+	color:white;
+	padding:15px;
+	margin-top:15px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+}
+
+#RSS_body #RSS_entries #entry #entry_desc {
+	margin-top:15px;
+}
+
+#RSS_body #RSS_entries #entry  span{
+	background-color: silver;
+	padding:6px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	color:#00611C;
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+}
+#RSS_body #RSS_entries #entry  span:hover{
+	background-color: #ccffcc;
+}

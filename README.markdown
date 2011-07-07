@@ -1,1 +1,0 @@
-This Javascript parser application consumes XML formatted data. 
